@@ -1,0 +1,19 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "https://raw.githubusercontent.com/WeiHall/FIT3179/main/assignment2data.csv"},
+    "mark": {
+      "type": "boxplot",
+      "extent": "min-max"
+    },
+    "encoding": {
+      "x": {
+        "field": "Age",
+        "type": "quantitative",
+        "scale": {"zero":false}
+      },
+      "y": {
+        "field": "Club"
+      }
+    }
+  }
+  

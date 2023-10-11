@@ -1,0 +1,26 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "https://raw.githubusercontent.com/WeiHall/FIT3179/main/assignment2data.csv"},
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Club",
+        "type": "nominal"
+      },
+      "y": {
+        "aggregate": "count",
+        "type": "quantitative",
+        "title": "Number of Players"
+      },
+      "color": {
+        "field": "Position",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Goalkeeper", "Defender", "Midfielder", "Forward"],
+          "range": ["#e7ba52", "#33a02c", "#aec7e8", "#1f77b4", "#9467bd"]
+        },
+        "title": "Position"
+      }
+    }
+  }
+  

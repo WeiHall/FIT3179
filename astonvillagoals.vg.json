@@ -1,0 +1,23 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A bar chart that sorts the y-values by the x-values.",
+    "data": {"url": "https://raw.githubusercontent.com/WeiHall/FIT3179/main/assignment2data.csv"},
+    "transform": [{"filter": "datum.Club == 'Aston-Villa'"},
+                  {"filter": "datum.Goals > 3"}],
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "Name",
+        "type": "nominal",
+        "sort": "-x"
+      },
+      "x": {
+        "field": "Goals",
+        "type": "quantitative"
+      },
+      "tooltip": [
+        {"field": "Goals", "type": "quantitative"}
+      ]
+    }
+  }
+  
