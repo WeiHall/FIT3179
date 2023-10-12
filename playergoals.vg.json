@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A bar chart that sorts the y-values by the x-values.",
+  "data": {"url": "https://raw.githubusercontent.com/WeiHall/FIT3179/main/assignment2data.csv"},
+  "config": {"background": "#FFF6E0"},
+  "vconcat": [
+    {
+    "mark": "bar",
+    "title": "Manchester City",
+    "transform": [{"filter": "datum.Club == 'Manchester-City'"},
+                  {"filter": "datum.Goals > 35"}],
+    "encoding": {
+      "y": {
+        "field": "Name",
+        "type": "nominal",
+        "sort": "-x",
+        "title": null
+      },
+      "x": {
+        "field": "Goals",
+        "type": "quantitative"
+      },
+      "tooltip": [
+        {"field": "Goals", "type": "quantitative"},
+        {"field": "Position", "type": "nominal"},
+        {"field": "Appearances", "type": "quantitative"}
+      ]
+    }
+    },
+    {
+    "transform": [{"filter": "datum.Club == 'Aston-Villa'"},
+                {"filter": "datum.Goals > 3"}],
+    "mark": "bar",
+    "title": "Aston Villa",
+    "encoding": {
+    "y": {
+      "field": "Name",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null
+    },
+    "x": {
+      "field": "Goals",
+      "type": "quantitative"
+    },
+    "tooltip": [
+      {"field": "Goals", "type": "quantitative"},
+      {"field": "Position", "type": "nominal"},
+      {"field": "Appearances", "type": "quantitative"}
+    ]
+  }
+  }
+  ]
+}

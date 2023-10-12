@@ -1,4 +1,70 @@
-.pure-u-4-5 img{
-    width: 10vw;
+.pure-u-1-1 img{
+    width: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
+
+.bolded {
+    font-weight: bold;
+}
+
+.mancity{
+    color: #e7cb94;
+}
+
+.astonvilla{
+    color: #5254a3;
+}
+
+.liverpool{
+    color: #1f77b4;
+}
+
+.forward{
+    color: #1f77b4;
+}
+
+.midfielder{
+    color: #aec7e8;
+}
+
+.defender{
+    color: #33a02c;
+}
+
+body *{
+    font-family: 'Geologica', sans-serif;
+}
+
+h1 {
+    font-weight: 900;
+    text-align: center;
+    
+}
+
+body {
+    min-height: 100vh;
+    vertical-align: middle;
+    background-color: white;
+}
+
+.page {
+    width: 1200px;
+    background-color: #FFF6E0;
+    margin: auto;
+    padding: 70px;
+    padding-top: 35px;
+}
+
+.vis-container {
+    width: 100%;
+}
+
+
+.pure-g {
+    margin-bottom: 40px;
+}
+
 

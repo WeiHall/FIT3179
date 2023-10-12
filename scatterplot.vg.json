@@ -1,67 +1,82 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 300, "height": 300,
-    "data": {"url": "https://raw.githubusercontent.com/WeiHall/FIT3179/main/statsbyclub.csv"},
-    
-    "encoding": {
-      "x": {"field": "winrate", 
-      "type": "quantitative",
-      "title": "Average Win-Rate"
-      },
-      "y": {"field": "g_scored", 
-      "type": "quantitative",
-      "title": "Goals Scored per Player per Game"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 275, "height": 300,
+  "data": {"url": "https://raw.githubusercontent.com/WeiHall/FIT3179/main/statsbyclub.csv"},
+  "config": {"background": "#FFF6E0"},
+  "params":[
+    {
+      "name": "mini",
+      "value": 0,
+       "bind": {
+         "input": "range",
+         "min": 0,
+         "max": 1,
+         "step": 0.01,
+         "name": "Minimum Win-Rate: "
+         }
+    }
+  ],
+  "encoding": {
+    "x": {"field": "winrate", 
+    "type": "quantitative",
+    "title": "Average Win-Rate"
+    },
+    "y": {"field": "g_scored", 
+    "type": "quantitative",
+    "title": "Goals Scored per Player per Game"
+    }
+  },
+  "layer": [
+    {
+      "params": [
+        {
+        "name": "team",
+        "select": {"type": "point", "fields": ["Club"]},
+        "bind": "legend"
+        }
+      ],
+      "transform": [{"filter": "datum.winrate >= mini"}],
+      "mark": {
+        "type": "circle",
+        "size": 100
+        },
+      "encoding": {
+        "color": {
+          "field":"Club",
+          "scale": {"scheme": "category20b"}
+        },
+        "opacity": {
+          "condition": {"param": "team", "value": 1},
+          "value": 0.2
+          },
+        "tooltip": [
+          {"field": "Club", "type": "nominal"},
+          {"field": "winrate", "type": "quantitative", "title": "Avg. Win-Rate", "format": ".3f"},
+          {"field": "g_scored", "type": "quantitative", "title": "Avg. Goals Scored per Player", "format": ".3f"}
+        ]
       }
     },
-    "layer": [
-      {
-        "params": [{
-          "name": "team",
-          "select": {"type": "point", "fields": ["Club"]},
-          "bind": "legend"
-        }],
-        "mark": {
-          "type": "circle",
-          "size": 100
-          },
-        "encoding": {
-          "color": {
-            "field":"Club",
-            "scale": {"scheme": "category20b"}
-          },
-          "opacity": {
-            "condition": {"param": "team", "value": 1},
-            "value": 0.2
-            },
-          "tooltip": [
-            {"field": "Club", "type": "nominal"},
-            {"field": "winrate", "type": "quantitative", "title": "Avg. Win-Rate", "format": ".3f"},
-            {"field": "g_scored", "type": "quantitative", "title": "Avg. Goals Scored per Player", "format": ".3f"}
-          ]
-        }
-      },
-    {
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "baseline": "middle",
-        "dx": -12,
-        "fontSize": 11.5,
-        "fontStyle": "italic"
-      },
-      "encoding": {
-        "text": {"field": "Club", "type": "nominal"},
-        "color": {"value": "black"},
-        "opacity": {
-          "condition": {
-            "test": "datum['Club'] == 'Manchester-City' || datum['Club'] == 'Aston-Villa'",
-            "value": 1
-          },
-          "value": 0
-        }
+  {
+    "mark": {
+      "type": "text",
+      "align": "right",
+      "baseline": "middle",
+      "dx": -12,
+      "fontSize": 11.5,
+      "fontStyle": "italic"
+    },
+    "encoding": {
+      "text": {"field": "Club", "type": "nominal"},
+      "color": {"value": "black"},
+      "opacity": {
+        "condition": {
+          "test": "datum['Club'] == 'Manchester-City' || datum['Club'] == 'Aston-Villa'",
+          "value": 1
+        },
+        "value": 0
       }
     }
-  ]      
+  }
+]      
 }
 
-  

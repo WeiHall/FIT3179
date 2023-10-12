@@ -2,9 +2,14 @@
 <html>
 <head>
   
+  <title>What Creates Success in the Premier League?</title>
   <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
@@ -16,94 +21,108 @@
   </head>
 
   <body>
-
-    <div class="pure-g">
-      <div class="pure-u-2-5">
-        <h1>
-          What Creates Success in the Premier League?
-        </h1>
-      </div>
-      <div class="pure-u-4-5">
-        <img src="Premier_League_Logo.svg.png"/>
-      </div>
-    </div>
-
-    <div class="pure-g">
-      <div class="pure-u-1-5">
-        <h2>
-          Demographic of Players
-        </h2>
-        <p>
-          Placeholder text....
-        </p>
-      </div>
-      <div class="pure-u-2-5">
-        <div id="choro_map">
+    <div class="page">
+      <div class="pure-g">
+        <div class="pure-u-1-1">
+          <img src="Premier_League_Logo.svg.png"/>
+        </div>
+        <div class="pure-u-1-1">
+          <h1>
+            What Creates Success in the Premier League?
+          </h1>
         </div>
       </div>
 
-    </div>
-    <div class="pure-g">
-      <div class="pure-u-1-5">
-        <h2>
-          Differences Between Teams
-        </h2>
-        <p>
-          Placeholder text...
-        </p>
+      <div class="pure-g">
+        <div class="pure-u-1-5">
+          <h2>
+            Demographic of Players
+          </h2>
+          <p>
+            The choropleth map demonstrates the overall diversity of the Premier League, with every continent having some degree of representation.
+            As expected, many of the players come from the <span class="bolded">United Kingdom</span>, where the Premier League is run. There are also
+            many players from surrounding footballing nations in Europe, such as <span class="bolded">Spain</span> and <span class="bolded">France</span>.
+            Whilst Europe has the greatest representation, South American countries such as <span class="bolded">Brazil</span> and <span class="bolded">Argentina</span>
+            are also reasonably involved, illustrating the high diversity amongst countries.
+          </p>
         </div>
-        <div class="pure-u-2-7">
-          <div id="position">
+        <div class="pure-u-4-5">
+          <div id="choro_map" class="vis-container">
           </div>
         </div>
-        <div class="pure-u-1-5">
-          <div id="infringements">
+
+      </div>
+      <div class="pure-g">
+        <div class="pure-u-1-2">
+          <h2>
+            Differences Between Teams
+          </h2>
+          <p>
+            All 20 teams within the 2020 Premier League season are run by <br> different owners, each with their own strategies as to how they <br> manage their players to achieve the greatest
+            amount of success. <br> The team with the greatest amount of success (as judged by <br> win-rate) is <span class="bolded mancity">Manchester City</span>, being the only team to win
+            more <br> than 60% of its games. The age distribution amongst clubs show <br> that most clubs have players of roughly the same age, with many <br> of them having a median age in the 24-25 age
+            range. This suggests <br> that the age range of a team is not necessarily a key differentiating <br> factor between teams, as most teams are very similar in this <br> regard. The position distribution
+            for most clubs also remains <br> relatively constant amongst each other, with almost all clubs <br> investing primarily into <span class="bolded midfielder">midfielders</span> and <span class="bolded defender">defenders</span>.
+          </p>
           </div>
-        </div>
-        <div class="pure-u-1-5">
+        <div class="pure-u-1-2">
           <div id="box">
           </div>
         </div>
       </div>
-    </div>
-    <div class="pure-g">
-      <div class="pure-u-1-5">
-        <h2>
-          How Does Offence Affect Win-Rate?
-        </h2>
-        <p>
-          Placeholder text...
-        </p>
-      </div>
-      <div class="pure-u-1-4">
-        <div id="scatterp">
+      <div class="pure-g">
+        <div class="pure-u-1-2">
+          <div id="winrates" class="vis-container">
+          </div>
+        </div>
+        <div class="pure-u-1-2">
+          <div id="position" class="vis-container">
+          </div>
         </div>
       </div>
-      <div class="pure-u-1-6">
-        <div id="mancity">
-        </div>
-      </div>
-      <div class="pure-u-1-5">
-        <div id="astonvillagoals">
-        </div>
-      </div>
-    </div>
-    <div class="pure-g">
-      <div class="pure-u-1-5">
-        <h2>
-          How Does Defence Affect Win-Rate?
-        </h2>
-        <p>
-          Placeholder text...
-        </p>
-      </div>
-      <div class="pure-u-1-4">
-        <div id="scatterdef">
-        </div>
-      </div>
-    </div>
 
-
+      <div class="pure-g">
+        <div class="pure-u-1-5" class="vis-container">
+          <h2>
+            How Does Offence Affect Win-Rate?
+          </h2>
+          <p>
+            The most successful offensive team is <span class="bolded mancity">Manchester City</span>, with the least successful being <span class="bolded astonvilla">Aston Villa</span>.
+            The key goalscorers of the former are mostly highly experienced and prolific <span class="bolded forward">forwards</span>, whereas the latter has much less experienced goalscorers
+            coming from different positions. This suggests that investment into key forward players is crucial for success.
+          </p>
+        </div>
+        <div class="pure-u-2-5">
+          <div id="scatterp" class="vis-container">
+          </div>
+        </div>
+        <div class="pure-u-2-5">
+          <div id="playergoals" class="vis-container">
+          </div>
+        </div>
+      </div>
+      <div class="pure-g">
+        <div class="pure-u-1-5">
+          <h2>
+            How Does Defence Affect Win-Rate?
+          </h2>
+          <p>
+            The most successful defensive team is <span class="bolded liverpool">Liverpool</span>, with the least successful being <span class="bolded astonvilla">Aston Villa</span>. The main defensive
+            contributions of the former surprisingly arise from mostly non-defensive positions, whereas the latter has almost all of their contributions from exclusively defensive players. This suggests
+            that having offensively positioned players that can contribute defensively may create significant benefit for a club.
+          </p>
+        </div>
+        <div class="pure-u-2-5">
+          <div id="scatterdef" class="vis-container">
+          </div>
+        </div>
+        <div class="pure-u-2-5">
+          <div id="playertackles" class="vis-container">
+          </div>
+        </div>
+      </div>
+    </div>
+ 
   </body>
 
 </html>

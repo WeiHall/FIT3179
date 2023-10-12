@@ -1,19 +1,26 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {"url": "https://raw.githubusercontent.com/WeiHall/FIT3179/main/assignment2data.csv"},
-    "mark": {
-      "type": "boxplot",
-      "extent": "min-max"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "https://raw.githubusercontent.com/WeiHall/FIT3179/main/assignment2data.csv"},
+  "width": 400,
+  "title": "Age Distribution Amongst Clubs",
+  "config": {"background": "#FFF6E0"},
+  "mark": {
+    "type": "boxplot",
+    "extent": "min-max"
+  },
+  "encoding": {
+    "y": {
+      "field": "Age",
+      "type": "quantitative",
+      "scale": {"zero":false}
     },
-    "encoding": {
-      "x": {
-        "field": "Age",
-        "type": "quantitative",
-        "scale": {"zero":false}
-      },
-      "y": {
-        "field": "Club"
-      }
+    "x": {
+      "field": "Club",
+      "title": null
+    },
+    "color": {
+      "field":"Club",
+      "scale": {"scheme": "category20b"}
     }
   }
-  
+}

@@ -1,9 +1,53 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Premier League Player Nationalities (September 2020)",
-  "width": 800,
+  "width": 900,
   "height": 400,
-  "projection": {"type": "equalEarth"},
+  "config": {"background": "#FFF6E0"},
+  "projection": {
+    "type": "equalEarth",
+    "center": {"expr": "centre"},
+    "scale": {"expr": "zoom"}
+    },
+  "params": [
+    {
+      "name": "zoom",
+      "value": 140,
+      "bind": {
+        "input": "range",
+        "min": 140,
+        "max": 500,
+        "step": 10,
+        "name": "Zoom :"
+      }
+    },
+    {
+      "name": "centre",
+      "value": [0, 0],
+      "bind": {
+        "input": "select",
+        "options": [
+          [0, 0],
+          [18, 8],
+          [80, 38],
+          [135, -25],
+          [15, 48],
+          [-100, 40],
+          [-58, -19]
+        ],
+        "labels": [
+          "Select",
+          "Africa",
+          "Asia",
+          "Australia",
+          "Europe",
+          "North America",
+          "South America"
+        ],
+        "name": "Centre: "
+      }
+    }
+  ],
   "layer": [
     {
     "data": {

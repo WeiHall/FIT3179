@@ -2,10 +2,13 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {"url": "https://raw.githubusercontent.com/WeiHall/FIT3179/main/assignment2data.csv"},
     "mark": "bar",
+    "title": "Position Distributions for Each Club",
+    "config": {"background": "#FFF6E0"},
     "encoding": {
       "x": {
         "field": "Club",
-        "type": "nominal"
+        "type": "nominal",
+        "title": null
       },
       "y": {
         "aggregate": "count",

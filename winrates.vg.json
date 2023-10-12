@@ -1,0 +1,51 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A bar chart that sorts the y-values by the x-values.",
+    "data": {"url": "https://raw.githubusercontent.com/WeiHall/FIT3179/main/statsbyclub.csv"},
+    "title": "Win-Rates for Each Club",
+    "height": {"step": 17},
+    "config": {"background": "#FFF6E0"},
+    "layer": [
+      {
+        "mark": "bar",
+        "encoding": {
+          "y": {
+            "field": "winrate",
+            "type": "quantitative",
+            "sort": "-x",
+            "title": "Win-Rate"
+          },
+          "x": {
+            "field": "Club",
+            "title": null
+          },
+          "color": {
+            "condition": {"test": "datum['Club'] == 'Manchester-City'", "value": "#FF7400"},
+            "value": "#B1B2B0 "
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "center",
+          "baseline": "middle",
+          "dx": 30,
+          "dy": -100,
+          "fontSize": 11
+        },
+        "encoding": {
+          "text": {"field": "winrate", "type": "quantitative", "format": ".2f"},
+          "color": {"value": "black"},
+          "opacity": {
+            "condition": {
+              "test": "datum['Club'] == 'Manchester-City'",
+              "value": 1
+            },
+            "value": 0
+          }
+        }
+      }
+    ]
+  }
+  
